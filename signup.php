@@ -6,9 +6,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = $_POST["username"];
     $password = $_POST["password"];
     $cpassword = $_POST["cpassword"];
-    $hp = password_hash($password,PASSWORD_DEFAULT);
-    $exists=false;
-    if(($password == $cpassword) && $exists==false){
+    if(($password == $cpassword) ){
         $sql = "INSERT INTO `users` ( `username`, `password`, `dt`) VALUES ('$username', '$password', current_timestamp())";
         $result = mysqli_query($conn, $sql);
         if ($result){
