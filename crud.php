@@ -40,7 +40,7 @@ else{
     $address = $_POST["address"];
     $note = $_POST["note"];
     $sno = $_SESSION['sno'];
-    echo $sno;
+    // echo $sno;
 
   // Sql query to be executed
   $sql = "INSERT INTO `customer` (`employee_id`, `name`, `number`, `address`, `note`) VALUES ('$sno','$name', '$number', '$address', '$note')";
@@ -54,6 +54,11 @@ else{
       echo "The record was not inserted successfully because of this error ---> ". mysqli_error($conn);
   } 
 }
+}
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+  header("location: login.php");
+  exit;
 }
 ?>
 
@@ -105,7 +110,7 @@ else{
             </div>
             <div class="form-group">
               <label for="name">Number</label>
-              <input type="text" class="form-control" id="numberEdit" name="numberEdit" aria-describedby="emailHelp">
+              <input type="number" class="form-control" id="numberEdit" name="numberEdit" aria-describedby="emailHelp">
             </div>
             <div class="form-group">
               <label for="name">Address</label>
