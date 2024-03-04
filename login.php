@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $username;
                 header("location: crud.php");
+                // header("location: invoice.php");
             } else {
                 $showError = "Invalid Credentials1";
             }
@@ -68,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
 
     <div class="container my-4">
-        <h1 class="text-center">Login to our website</h1>
+        <h1 class="text-center">Login </h1>
         <form action="/pos/login.php" method="post">
             <div class="form-group">
                 <label for="username">Username</label>

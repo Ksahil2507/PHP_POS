@@ -6,7 +6,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = $_POST["username"];
     $password = $_POST["password"];
     $cpassword = $_POST["cpassword"];
-    $exists=true;
+    $exists=false;
     if(($password == $cpassword) && $exists==false){
         $sql = "INSERT INTO `users` ( `username`, `password`, `dt`) VALUES ('$username', '$password', current_timestamp())";
         $result = mysqli_query($conn, $sql);
@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     ?>
 
     <div class="container my-4">
-     <h1 class="text-center">Signup to our website</h1>
+     <h1 class="text-center">Signup </h1>
      <form action="/pos/signup.php" method="post">
         <div class="form-group">
             <label for="username">Username</label>
